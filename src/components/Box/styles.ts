@@ -7,7 +7,7 @@ const styles = (theme: Theme) => ({
           padding: 16,
           display: 'flex',
           justifyContent: 'space-around',
-          margin: 0,
+          alignItems: 'center',
           border: '1px solid'
         },
         rotate: {
