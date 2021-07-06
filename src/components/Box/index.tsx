@@ -20,8 +20,8 @@ export default function ButtonAppBar(props: Props) {
   }
 
   return (
-   <button className={classes.boxStyle} onClick={onHandleClick}>
-     <Typography variant="h5">{boxes[name]}</Typography>
-   </button>
+   <div className={classes.boxStyle} onClick={onHandleClick}>
+     <Typography variant="h2" className={boxes[name] && classes.rotate}>{boxes[name]}</Typography>
+   </div>
   );
 }

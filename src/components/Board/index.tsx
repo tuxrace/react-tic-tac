@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import styles from './styles';
 import Box from '../Box';
+import { Button, Typography } from '@material-ui/core';
 
 interface Props {
 }
@@ -22,17 +23,26 @@ export default function ButtonAppBar(props: Props) {
     setLatest(!latest)
   }
 
+  const resetGame = () => {
+    setBoxes([])
+  }
+
   return (
-   <Grid container direction="column" >
-     <Grid item>
+  <>
+   <Grid container direction="column">
+     <Grid item container direction="row">
        <Box boxes={boxes} name={1} handleClick={handleClick}/><Box boxes={boxes} name={2} handleClick={handleClick}/><Box boxes={boxes} name={3} handleClick={handleClick}/>
      </Grid>
-     <Grid item>
+     <Grid item container direction="row">
      <Box boxes={boxes} name={4} handleClick={handleClick}/><Box boxes={boxes} name={5} handleClick={handleClick}/><Box boxes={boxes} name={6} handleClick={handleClick}/>
      </Grid>
-     <Grid item>
+     <Grid item container direction="row">
      <Box boxes={boxes} name={7} handleClick={handleClick}/><Box boxes={boxes} name={8} handleClick={handleClick}/><Box boxes={boxes} name={9} handleClick={handleClick}/>
      </Grid>
    </Grid>
+   <Typography> Player: {latest ? 'X' : 'O'} </Typography>
+    <Button color="primary" variant="contained" onClick={resetGame}> Reset Game </Button>
+     
+   </>
   );
 }

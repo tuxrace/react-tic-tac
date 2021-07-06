@@ -1,18 +1,18 @@
 import { Theme } from "@material-ui/core"
 
 const styles = (theme: Theme) => ({
-        root: {
-          flexGrow: 1,
-        },
-        menuButton: {
-          marginRight: theme.spacing(2),
-        },
-        title: {
-          flexGrow: 1,
-        },
         boxStyle: {
-          width: theme.spacing(10),
-          height: theme.spacing(10)
+          width: theme.spacing(12),
+          height: theme.spacing(12),
+          padding: 16,
+          display: 'flex',
+          justifyContent: 'space-around',
+          margin: 0,
+          border: '1px solid'
+        },
+        rotate: {
+          transform: 'rotate(-180deg)',
+          transitionDuration: '0.8s'
         }
 })
 
