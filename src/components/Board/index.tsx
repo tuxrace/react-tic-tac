@@ -30,36 +30,50 @@ export default function ButtonAppBar(props: Props) {
   }
 
   const determineWinner = () => {
-    const [box1,box2,box3,box4,box5,box6,box7,box8,box9] = boxes
+    const [box0, box1,box2,box3,box4,box5,box6,box7,box8,box9] = boxes
+    
+    if (box0) {
 
-    const topLine = lineMatch([box1,box2,box3], 'X', 'Y')
+    }
+    
+    const topLine = lineMatch([box1,box2,box3], 'X', 'O')
     if (topLine){
       setWinner(topLine)
     }
 
-    const midLine = lineMatch([box4,box5,box6], 'X', 'Y')
+    const midLine = lineMatch([box4,box5,box6], 'X', 'O')
     if (midLine){
       setWinner(midLine)
     }
 
-    const bottomLine = lineMatch([box7,box8,box9], 'X', 'Y')
+    const bottomLine = lineMatch([box7,box8,box9], 'X', 'O')
     if (bottomLine){
       setWinner(bottomLine)
     }
 
-    const LeftVertical = lineMatch([box1,box4,box7], 'X', 'Y')
+    const LeftVertical = lineMatch([box1,box4,box7], 'X', 'O')
     if (LeftVertical){
       setWinner(LeftVertical)
     }
 
-    const midVertical = lineMatch([box2,box5,box8], 'X', 'Y')
+    const midVertical = lineMatch([box2,box5,box8], 'X', 'O')
     if (midVertical){
       setWinner(midVertical)
     }
 
-    const rightVertical = lineMatch([box3,box6,box9], 'X', 'Y')
+    const rightVertical = lineMatch([box3,box6,box9], 'X', 'O')
     if (rightVertical){
       setWinner(rightVertical)
+    }
+
+    const diagLeft = lineMatch([box1,box5,box9], 'X', 'O')
+    if (diagLeft){
+      setWinner(diagLeft)
+    }
+
+    const diagRight = lineMatch([box3,box5,box7], 'X', 'O')
+    if (diagRight){
+      setWinner(diagRight)
     }
     
   }
@@ -93,7 +107,9 @@ export default function ButtonAppBar(props: Props) {
      </Grid>
    </Grid>
    <Typography> Player: {latest ? 'X' : 'O'} </Typography>
-   <Typography> Winner: {winner} </Typography>
+   <Grid container lg={2} sm={12} justify="center">
+    <Typography className={winner ? classes.win : ''}> {winner && `Winner: ${winner}`} </Typography>
+   </Grid>
    <Grid container lg={2} sm={12}>
     <Button fullWidth color="primary" variant="contained" onClick={resetGame}> Reset Game </Button>
    </Grid>
