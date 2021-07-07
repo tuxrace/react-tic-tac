@@ -29,19 +29,19 @@ export default function ButtonAppBar(props: Props) {
   return (
   <>
    <Grid container direction="column" className={classes.root}>
-     <Grid item container direction="row" xs={12}>
+     <Grid item container direction="row" lg={5} sm={12}>
        <Box boxes={boxes} name={1} handleClick={handleClick}/><Box boxes={boxes} name={2} handleClick={handleClick}/><Box boxes={boxes} name={3} handleClick={handleClick}/>
      </Grid>
-     <Grid item container direction="row">
+     <Grid item container direction="row" lg={5} sm={12}>
      <Box boxes={boxes} name={4} handleClick={handleClick}/><Box boxes={boxes} name={5} handleClick={handleClick}/><Box boxes={boxes} name={6} handleClick={handleClick}/>
      </Grid>
-     <Grid item container direction="row">
+     <Grid item container direction="row" lg={5} sm={12}>
      <Box boxes={boxes} name={7} handleClick={handleClick}/><Box boxes={boxes} name={8} handleClick={handleClick}/><Box boxes={boxes} name={9} handleClick={handleClick}/>
      </Grid>
    </Grid>
    <Typography> Player: {latest ? 'X' : 'O'} </Typography>
-   <Grid container xl={6} xs={12}>
-    <Button color="primary" variant="contained" onClick={resetGame}> Reset Game </Button>
+   <Grid container lg={2} sm={12}>
+    <Button fullWidth color="primary" variant="contained" onClick={resetGame}> Reset Game </Button>
    </Grid>
    </>
   );

@@ -9,7 +9,8 @@ const styles = (theme: Theme) => ({
           justifyContent: 'space-around',
           alignItems: 'center',
           border: '1px solid',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          flex: 1
         },
         rotate: {
           transform: 'rotate(-180deg)',
