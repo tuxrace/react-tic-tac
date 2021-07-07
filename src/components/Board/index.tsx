@@ -15,11 +15,13 @@ export default function ButtonAppBar(props: Props) {
   const classes = useStyles()
 
   const handleClick = (name: number) => {
-    const latestValue = latest ? 'X' : 'O'
     const newBoxes: string[] = [...boxes]
-    newBoxes[name] = latestValue
-    setBoxes(newBoxes)
-    setLatest(!latest)
+    if (!newBoxes[name]) {
+      const latestValue = latest ? 'X' : 'O'
+      newBoxes[name] = latestValue
+      setBoxes(newBoxes)
+      setLatest(!latest)
+    }
   }
 
   const resetGame = () => {
