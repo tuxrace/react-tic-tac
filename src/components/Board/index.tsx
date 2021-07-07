@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '../Box';
 import { Button, makeStyles, Typography } from '@material-ui/core';
@@ -14,6 +14,10 @@ export default function ButtonAppBar(props: Props) {
   const [boxes, setBoxes] = useState<string[]>([])
   const [winner, setWinner] = useState<string | boolean>(false)
   const classes = useStyles()
+
+  useEffect(() => {
+    determineWinner()
+  }, [latest])
 
   const lineMatch = (arrBoxes: any[], player1: any, player2: any) => {
     if (arrBoxes.every(val => val === player1)){
@@ -61,13 +65,13 @@ export default function ButtonAppBar(props: Props) {
   }
 
   const handleClick = (name: number) => {
+    
     const newBoxes: string[] = [...boxes]
     if (!newBoxes[name] && !winner) {
       const latestValue = latest ? 'X' : 'O'
       newBoxes[name] = latestValue
       setBoxes(newBoxes)
       setLatest(!latest)
-      determineWinner()
     }
   }
 
